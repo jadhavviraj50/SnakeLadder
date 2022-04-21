@@ -109,6 +109,30 @@ namespace SnakeLadder
             }
             return CheckBoundary(displacement);
         }
+
+        //UC6 Report the number of times dice was played
+        //UC7 Report which player won the game
+
+        public void PlayTillEnd(SnakeAndLadder player2)
+        {
+            while (this.winCheck is false && player2.winCheck is false)
+            {
+                Console.WriteLine("\nplayer 1 turn: ");
+                this.RollDie();
+                this.Describe();
+                if (this.winCheck is true)
+                    break;
+                Console.WriteLine("\nplayer 2 turn: ");
+                player2.RollDie();
+                player2.Describe();
+            }
+            if (player2.winCheck is true)
+                Console.WriteLine("\nCongrats Player2 is won");
+            else
+                Console.WriteLine("\nCongrats Player1 is won");
+            Console.WriteLine("Player1 total die rolls: " + totalDieRoll);
+            Console.WriteLine("Player2 total die rolls: " + player2.totalDieRoll);
+        }
     }
 
 }
