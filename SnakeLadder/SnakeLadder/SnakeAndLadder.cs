@@ -96,6 +96,19 @@ namespace SnakeLadder
             else
                 return 1;
         }
+
+        //UC5 Player gets to exact winning position 100
+
+        private int MovePlayer(int displacement)
+        {
+            position += displacement;
+            if (position == 100)
+            {
+                winCheck = true;
+                return 0;
+            }
+            return CheckBoundary(displacement);
+        }
     }
 
 }
